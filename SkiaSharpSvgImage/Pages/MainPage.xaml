@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:SkiaSharpSvgImage.Controls" x:Class="SkiaSharpSvgImage.Pages.MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*" />
+            <RowDefinition Height=".25*" />
+            <RowDefinition Height=".25*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <BoxView Grid.ColumnSpan="2" BackgroundColor="Lime"/>
+        <controls:SvgImage Margin="10" Source="tux1.svg" BackgroundColor="Yellow"/>
+        <controls:SvgImage Grid.Column="1" Margin="10" Source="tux1.svg" BackgroundColor="Aqua" HorizontalOptions="End"/>
+        
+        <BoxView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Red"/>
+        <controls:SvgImage Grid.Row="1" Source="tux2.svg" BackgroundColor="Green"/>
+        <controls:SvgImage Grid.Row="1" Grid.Column="1" Source="tux2.svg" BackgroundColor="Olive" HorizontalOptions="Start"/>
+        
+        <BoxView Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="Blue"/>
+        <controls:SvgImage Grid.Row="2" Source="tux1.svg" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Fuchsia"/>
+        <controls:SvgImage Grid.Row="2" Grid.Column="1" Source="tux1.svg" BackgroundColor="Purple"/>
+    </Grid>
+</ContentPage>
