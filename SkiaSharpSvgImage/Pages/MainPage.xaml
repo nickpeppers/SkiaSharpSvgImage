@@ -2,7 +2,8 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:controls="clr-namespace:SkiaSharpSvgImage.Controls" x:Class="SkiaSharpSvgImage.Pages.MainPage">
+    xmlns:controls="clr-namespace:SkiaSharpSvgImage.Controls" 
+    x:Class="SkiaSharpSvgImage.Pages.MainPage">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height=".5*" />
@@ -15,15 +16,15 @@
         </Grid.ColumnDefinitions>
         
         <BoxView Grid.ColumnSpan="2" BackgroundColor="Lime"/>
-        <controls:SvgImage Margin="10" Source="tux1.svg" BackgroundColor="Yellow"/>
-        <controls:SvgImage Grid.Column="1" Margin="10" Source="tux1.svg" BackgroundColor="Aqua" HorizontalOptions="End"/>
+        <controls:SvgImage Margin="10" Source="Resources.tux1.svg" BackgroundColor="Yellow" />
+        <controls:SvgImage Grid.Column="1" Margin="10" Source="Resources.tux1.svg" BackgroundColor="Aqua" HeightRequest="256" WidthRequest="256" VerticalOptions="Center" HorizontalOptions="End"/>
         
         <BoxView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Red"/>
-        <controls:SvgImage Grid.Row="1" Source="tux2.svg" BackgroundColor="Green"/>
-        <controls:SvgImage Grid.Row="1" Grid.Column="1" Source="tux2.svg" BackgroundColor="Olive" HorizontalOptions="Start"/>
+        <controls:SvgImage Grid.Row="1" Source="Resources.tux2.svg" BackgroundColor="Green"/>
+        <controls:SvgImage Grid.Row="1" Grid.Column="1" Source="Resources.tux2.svg" BackgroundColor="Olive" HeightRequest="128" WidthRequest="128" HorizontalOptions="Start"/>
         
         <BoxView Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="Blue"/>
-        <controls:SvgImage Grid.Row="2" Source="tux1.svg" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Fuchsia"/>
-        <controls:SvgImage Grid.Row="2" Grid.Column="1" Source="tux1.svg" BackgroundColor="Purple"/>
+        <controls:SvgImage Grid.Row="2" Source="Resources.tux1.svg" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Fuchsia"/>
+        <controls:SvgImage Grid.Row="2" Grid.Column="1" Source="Resources.tux1.svg" HeightRequest="64" WidthRequest="64" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Purple"/>
     </Grid>
 </ContentPage>

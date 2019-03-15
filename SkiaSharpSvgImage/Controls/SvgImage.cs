@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using SkiaSharp.Extended.Svg;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
@@ -39,32 +40,40 @@ namespace SkiaSharpSvgImage.Controls
         {
             base.OnPaintSurface(e);
 
-            var surface = e.Surface;
-            var canvas = surface.Canvas;
-
-            canvas.Clear();
-
-            if (string.IsNullOrEmpty(Source))
-                return;
-
-            using (var stream = GetType().Assembly.GetManifestResourceStream("SkiaSharpSvgImage.Resources." + Source))
+            try
             {
-                var skSvg = new SKSvg();
-                skSvg.Load(stream);
+                var surface = e.Surface;
+                var canvas = surface.Canvas;
 
-                var skImageInfo = e.Info;
-                canvas.Translate(skImageInfo.Width / 2f, skImageInfo.Height / 2f);
+                canvas.Clear();
 
-                var skRect = skSvg.ViewBox;
-                float xRatio = skImageInfo.Width / skRect.Width;
-                float yRatio = skImageInfo.Height / skRect.Height;
+                if (string.IsNullOrEmpty(Source))
+                    return;
 
-                float ratio = Math.Min(xRatio, yRatio);
+                var currentAssembly = typeof(App).GetTypeInfo().Assembly;
+                using (var stream = currentAssembly.GetManifestResourceStream(currentAssembly.GetName().Name + "." + Source))
+                {
+                    var skSvg = new SKSvg();
+                    skSvg.Load(stream);
 
-                canvas.Scale(ratio);
-                canvas.Translate(-skRect.MidX, -skRect.MidY);
+                    var skImageInfo = e.Info;
+                    canvas.Translate(skImageInfo.Width / 2f, skImageInfo.Height / 2f);
 
-                canvas.DrawPicture(skSvg.Picture);
+                    var skRect = skSvg.ViewBox;
+                    float xRatio = skImageInfo.Width / skRect.Width;
+                    float yRatio = skImageInfo.Height / skRect.Height;
+
+                    float ratio = Math.Min(xRatio, yRatio);
+
+                    canvas.Scale(ratio);
+                    canvas.Translate(-skRect.MidX, -skRect.MidY);
+
+                    canvas.DrawPicture(skSvg.Picture);
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine("OnPaintSurface Exception: " + exc);
             }
         }
     }
