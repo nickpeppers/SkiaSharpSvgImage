@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:controls="clr-namespace:SkiaSharpSvgImage.Controls" 
     x:Class="SkiaSharpSvgImage.Pages.MainPage">
-    <!--<Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height=".5*" />
             <RowDefinition Height=".25*" />
@@ -16,18 +16,18 @@
         </Grid.ColumnDefinitions>
         
         <BoxView Grid.ColumnSpan="2" BackgroundColor="Lime"/>
-        <controls:SvgImage Margin="10" AssemblyLocation="SkiaSharpSvgImage" Source="Resources.tux1.svg" BackgroundColor="Yellow" />
-        <controls:SvgImage Grid.Column="1" Margin="10" AssemblyLocation="SkiaSharpSvgImage" Source="Resources.tux1.svg" BackgroundColor="Aqua" HeightRequest="256" WidthRequest="256" VerticalOptions="Center" HorizontalOptions="End"/>
+        <controls:SvgImage Margin="10" AssemblyName="SkiaSharpSvgImage" Source="Resources.tux1.svg" BackgroundColor="Yellow" />
+        <controls:SvgImage Grid.Column="1" Margin="10" AssemblyName="SkiaSharpSvgImage" Source="Resources.tux1.svg" BackgroundColor="Aqua" HeightRequest="256" WidthRequest="256" VerticalOptions="Center" HorizontalOptions="End"/>
         
         <BoxView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Red"/>
-        <controls:SvgImage Grid.Row="1" AssemblyLocation="SkiaSharpSvgImage" Source="Resources.tux2.svg" BackgroundColor="Green"/>
-        <controls:SvgImage Grid.Row="1" Grid.Column="1" AssemblyLocation="SkiaSharpSvgImage" Source="Resources.tux2.svg" BackgroundColor="Olive" HeightRequest="128" WidthRequest="128" HorizontalOptions="Start"/>
+        <controls:SvgImage Grid.Row="1" AssemblyName="SkiaSharpSvgImage" Source="Resources.tux2.svg" BackgroundColor="Green"/>
+        <controls:SvgImage Grid.Row="1" Grid.Column="1" AssemblyName="SkiaSharpSvgImage" Source="Resources.tux2.svg" BackgroundColor="Olive" HeightRequest="128" WidthRequest="128" HorizontalOptions="Start"/>
         
         <BoxView Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="Blue"/>
-        <controls:SvgImage Grid.Row="2" AssemblyLocation="SkiaSharpSvgImage" Source="Resources.tux1.svg" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Fuchsia"/>
-        <controls:SvgImage Grid.Row="2" Grid.Column="1" AssemblyLocation="SkiaSharpSvgImage" Source="Resources.tux1.svg" HeightRequest="64" WidthRequest="64" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Purple"/>
-    </Grid>-->
-    <ListView x:Name="_listView" RowHeight="80">
+        <controls:SvgImage Grid.Row="2" AssemblyName="SkiaSharpSvgImage" Source="Resources.tux1.svg" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Fuchsia"/>
+        <controls:SvgImage Grid.Row="2" Grid.Column="1" AssemblyName="SkiaSharpSvgImage" Source="Resources.tux1.svg" HeightRequest="64" WidthRequest="64" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Purple"/>
+    </Grid>
+    <!--<ListView x:Name="_listView" RowHeight="80">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
@@ -36,11 +36,11 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <controls:SvgImage Margin="10" AssemblyLocation="SkiaSharpSvgImage" Source="Resources.tux1.svg" BackgroundColor="Lime" />
+                        <controls:SvgImage Margin="10" AssemblyName="SkiaSharpSvgImage" Source="Resources.tux1.svg" BackgroundColor="Lime" />
                         <Label Grid.Column="1" Text="text" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
                     </Grid>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView>
+    </ListView>-->
 </ContentPage>
