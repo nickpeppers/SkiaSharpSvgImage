@@ -8,7 +8,7 @@ namespace SkiaSharpSvgImage.Controls
 {
     public class SvgImage : SKCanvasView
     {
-        public static readonly BindableProperty SourceProperty = BindableProperty.Create(nameof(Source), typeof(string), typeof(SvgImage), default(string), propertyChanged: OnSourceChanged);
+        public static readonly BindableProperty SourceProperty = BindableProperty.Create(nameof(Source), typeof(string), typeof(SvgImage), default(string), propertyChanged: OnPropertyChanged);
 
         public string Source
         {
@@ -16,13 +16,7 @@ namespace SkiaSharpSvgImage.Controls
             set => SetValue(SourceProperty, value);
         }
 
-        static void OnSourceChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var skCanvasView = bindable as SKCanvasView;
-            skCanvasView?.InvalidateSurface();
-        }
-
-        public static readonly BindableProperty AssemblyNameProperty = BindableProperty.Create(nameof(AssemblyName), typeof(string), typeof(SvgImage), default(string), propertyChanged: OnAssemblyChanged);
+        public static readonly BindableProperty AssemblyNameProperty = BindableProperty.Create(nameof(AssemblyName), typeof(string), typeof(SvgImage), default(string), propertyChanged: OnPropertyChanged);
 
         public string AssemblyName
         {
@@ -30,7 +24,7 @@ namespace SkiaSharpSvgImage.Controls
             set => SetValue(AssemblyNameProperty, value);
         }
 
-        static void OnAssemblyChanged(BindableObject bindable, object oldValue, object newValue)
+        static void OnPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var skCanvasView = bindable as SKCanvasView;
             skCanvasView?.InvalidateSurface();
