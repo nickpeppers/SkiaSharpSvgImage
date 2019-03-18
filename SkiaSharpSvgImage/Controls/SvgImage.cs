@@ -22,6 +22,20 @@ namespace SkiaSharpSvgImage.Controls
             skCanvasView?.InvalidateSurface();
         }
 
+        public static readonly BindableProperty AssemblyProperty = BindableProperty.Create(nameof(AssemblyLocation), typeof(string), typeof(SvgImage), default(string), propertyChanged: OnAssemblyChanged);
+
+        public string AssemblyLocation
+        {
+            get => (string)GetValue(AssemblyProperty);
+            set => SetValue(AssemblyProperty, value);
+        }
+
+        static void OnAssemblyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var skCanvasView = bindable as SKCanvasView;
+            skCanvasView?.InvalidateSurface();
+        }
+
         protected override void OnBindingContextChanged()
         {
             base.OnBindingContextChanged();
@@ -47,11 +61,11 @@ namespace SkiaSharpSvgImage.Controls
 
                 canvas.Clear();
 
-                if (string.IsNullOrEmpty(Source))
+                if (string.IsNullOrEmpty(Source) || string.IsNullOrEmpty(AssemblyLocation))
                     return;
 
-                var currentAssembly = typeof(App).GetTypeInfo().Assembly;
-                using (var stream = currentAssembly.GetManifestResourceStream(currentAssembly.GetName().Name + "." + Source))
+                var currentAssembly = Assembly.Load(AssemblyLocation);
+                using (var stream = currentAssembly.GetManifestResourceStream(AssemblyLocation + "." + Source))
                 {
                     var skSvg = new SKSvg();
                     skSvg.Load(stream);
